@@ -5,7 +5,6 @@ array = []
 def adjIsSmallerUp(grid, x, y):
     if y+1 != 100:
         if grid[x][y]<grid[x][y+1]:
-            print(grid[x][y], "largest up")
             return True
         else:
             return False
@@ -13,7 +12,6 @@ def adjIsSmallerUp(grid, x, y):
 def adjIsSmallerDown(grid, x, y):
     if y-1 != -1:
         if grid[x][y]<grid[x][y-1]:
-            print(grid[x][y], "largest down")
             return True
         else:
             return False
@@ -21,7 +19,6 @@ def adjIsSmallerDown(grid, x, y):
 def adjIsSmallerLeft(grid, x, y):
     if x+1 != 100:
         if grid[x][y]<grid[x+1][y]:
-            print(grid[x][y], "largest left", grid[x+1][y])
             return True
         else:
             return False
@@ -29,7 +26,6 @@ def adjIsSmallerLeft(grid, x, y):
 def adjIsSmallerRight(grid, x, y):
     if x-1 != -1:
         if grid[x][y]<grid[x-1][y]:
-            print(grid[x][y], "largest right")
             return True
         else:
             return False
@@ -42,7 +38,6 @@ def adjIsSmaller(grid, x, y):
             if adjIsSmallerLeft(grid, x ,y):
                 if adjIsSmallerRight(grid, x ,y):
                     return True
-    print("false")
     return False
 
 with open("C:/Git Stuff/advent-of-code/DayNine/DayNineInput.txt") as f:
