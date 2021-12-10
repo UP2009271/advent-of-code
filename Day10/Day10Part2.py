@@ -13,11 +13,6 @@ def isStart(chr):
         return False
     return True
 
-def isEnd(chr):
-    if chr not in ['}','>',')',']']:
-        return False
-    return True
-
 def getOther(chr):
     startChr = ['{','<','(','[']
     endChr = ['}','>',')',']']
@@ -26,7 +21,19 @@ def getOther(chr):
     else:
         return startChr[endChr.index(chr)]
 
-endingToAdd = []
+def getScore(charr):
+    if charr == '(':
+        return 1
+    elif charr == '[':
+        return 2
+    elif charr == '{':
+        return 3
+    else:
+        return 4
+
+corruptLines = []
+incompleteLines = []
+arrayEnding = []
 
 for column in range(len(array)):
     start = []
@@ -41,18 +48,23 @@ for column in range(len(array)):
                 start.pop()
                 ending.pop(0)
             else:
-                endingToAdd.append(ending[0])
+                corruptLines.append(column)
                 break
+    start.reverse()
+    arrayEnding.append(start)
 
-sum = 0
-for i in endingToAdd:
-    if i == ')':
-        sum += 3
-    elif i == ']':
-        sum += 57
-    elif i == '}':
-        sum += 1197
-    else:
-        sum += 25137
+for i in range(100): # no of lines
+    if (i not in corruptLines):
+        incompleteLines.append(i)
 
-print(sum)
+total = []
+for i in incompleteLines:
+    sum = 0
+    for j in arrayEnding[i]:
+        sum *= 5
+        sum += getScore(j)
+    total.append(sum)
+
+total.sort()
+middle = int((len(total) - 1) / 2)
+print(total[middle])
