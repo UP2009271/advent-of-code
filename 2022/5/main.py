@@ -1,5 +1,6 @@
 # files won't auto update in side nav
 # check using correct input data
+# input file was changed because it's easier to CTRL+F ;)
 
 def load_file(path):
     crates = []
@@ -23,7 +24,7 @@ def crate_to_dict(raw_crates):
     for crate in raw_crates:
         vals = ""
 
-        for i in range(1, len(crate), 4):
+        for i in range(1, len(crate), 4): # crate value is every 4 chars, starting on the 2nd char in line
             vals += crate[i]
         for i in vals:
             if i != " ":
