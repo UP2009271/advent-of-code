@@ -17,11 +17,7 @@ def get_dir_size(path):
 
 dirs = {}
 subdirs = {}
-
 arr = load_file('input.txt')
-
-lst = []
-
 path = "/"
 
 for i in arr:
@@ -50,7 +46,6 @@ for dir in dirs:
 
 print(cnt) #P1 ans
 
-cnt = 0
 total = get_dir_size("/")
 all_dirs = []
 for dir in dirs:
